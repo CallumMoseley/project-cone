@@ -10,6 +10,9 @@ public class Representation {
 	public Representation(){
 		
 	}
+	public Representation(Object data){
+		//Format.
+	}
 	public Representation(Format format, Object data) {
 		this.format = format;
 		this.data = data;

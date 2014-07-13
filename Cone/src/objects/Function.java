@@ -17,6 +17,10 @@ public class Function {
 		return cone_evaluate("determine_method_to_use.evaluate(arguments)", arguments);
 	}
 	
+	public Representation substitute(){
+		return null;
+	}
+	
 	public static Function factorial = new Function();
 	public static Function sine = new Function();
 	public static Function cosine = new Function();

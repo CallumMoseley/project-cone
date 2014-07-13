@@ -8,7 +8,7 @@ public class Context {
 		int length = parameters.length/2;
 		Reference[] reference_array = new Reference[length];
 		for(int i = 0; i < length; i++){
-			reference_array[i] = new Reference((String)parameters[2*i], (Representation)parameters[2*i+1]);
+			reference_array[i] = new Reference((String)parameters[2*i], (parameters[2*i+1] instanceof Representation)?(Representation)parameters[2*i+1]:new Representation(parameters[2*i+1]));
 		}
 		references = new Representation(FArray, reference_array);
 	}

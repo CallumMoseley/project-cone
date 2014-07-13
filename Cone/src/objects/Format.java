@@ -1,5 +1,6 @@
 package objects;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 
 import static objects.CObject.*;
@@ -7,6 +8,7 @@ import static objects._Field.*;
 import static objects._Method.*;
 
 public class Format {
+	
 	HashMap<_Field, _Method> getMap = new HashMap<_Field, _Method>();
 	HashMap<_Field, _Method> setMap = new HashMap<_Field, _Method>();
 	CObject template;
@@ -39,11 +41,25 @@ public class Format {
 	public static Format FArray = new Format(sequence);
 	public static Format FArrayList = new Format(sequence, ArrayList.class);
 	
+	public static Format FComparator = new Format(comparator, Comparator.class);
+	
 	public static Format Fint = new Format(integer, int.class);
 	public static Format Fchar = new Format(character, char.class);
 	
+	public static HashMap<Class, Format> default_formats = new HashMap<Class, Format>();
+	public static HashMap<Pair<Format, Format>, _Method> default_translations = new HashMap<Pair<Format, Format>, _Method>();
+	
 	static{
-		FString.getMap.put(nth, new _Method(quick_java_evaluate, new String[]{"this", "n"}, "this.charAt(n)"));
+		//FString.getMap.put(nth, new _Method(quick_java_evaluate, "this.charAt(n)", new String[]{"this", "n"}));
 		//FHashMap.getMap.put();
+		//FArray.getMap.put(subsequences), new _Method("Arrays.copyOfRange(this, start_index, end_index)", )
+		//FString.getMap.put(subsequences), new _Method("this.substring(start_index, end_index)")
+		//FArrayList.getMap.put(subsequences), new _Method("this.subList(start_index, end_index)")
+		//start_index and end_index as_a subsequence of a sequence
+		//default_translations.put(new Pair<Format, Format>(FArray, FArrayList), new _Method(quick_java_evaluate, "Arrays.asList(array)")));
+		//default_translations.put(new Pair<Format, Format>(Fchar, Fint), new _Method
+		//'0'..'9' ---((int)c-'0')---> 0 .. 9
+		
+		
 	}
 }
